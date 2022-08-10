@@ -1,0 +1,154 @@
+/*  Fonts  */
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/*  Variables  */
+:root {
+     --title-font: "Righteous", cursive;
+     --other-font: "Roboto", sans-serif;
+     --green: rgb(50, 183, 47);
+     --red: rgb(207, 43, 43);
+     --light-grey: rgb(238, 238, 238);
+     --dark-grey: rgb(203, 203, 203);
+     --white: rgb(255, 255, 255);
+     --black: rgb(51, 51, 51);
+     --max-width: 414px;
+     --itens-width: 172px;
+     --height: 216px;
+     --transition: all 0.3s linear;
+     --border-radius: 5px;
+     --spacing: 19px;
+}
+
+/*  
+   =================
+     Global Styles
+   =================
+*/
+* {
+     box-sizing: border-box;
+}
+body {
+     font-weight: 400;
+     background-color: var(--light-grey);
+}
+h1,
+h2 {
+     font-family: var(--title-font);
+}
+h1 {
+     font-size: 44px;
+     line-height: 55px;
+     letter-spacing: -0.012em;
+}
+h2 {
+     font-size: 26px;
+     line-height: 32px;
+     letter-spacing: 0.018em;
+     color: var(--black);
+     padding-left: var(--spacing);
+}
+h3,
+h4,
+h5,
+h6,
+p {
+     font-family: var(--other-font);
+}
+h3 {
+     font-size: 18px;
+     line-height: 21px;
+}
+h4 {
+     font-size: 16px;
+     line-height: 19px;
+     color: var(--black);
+}
+h4.bolder {
+     font-weight: 700;
+}
+h5 {
+     font-weight: 300;
+     font-size: 15px;
+     line-height: 18px;
+     color: var(--light-grey);
+}
+h6 {
+     font-size: 20px;
+     line-height: 23px;
+}
+/* 
+     USAR PARA QUANDO O BOTÃO DO RODAPÉ
+     ESTIVER ATIVADO E PARA "CANCELAR" DA ÚLTIMA PÁGINA
+h6.bolder {
+     font-weight: 700;
+}
+  USAR NA ÚLTIMA PÁGINA
+P {
+     font-size: 22px;
+     line-height: 26px;
+     letter-spacing: 0.018em;
+}
+P.bolder {
+     font-weight: 700;
+} */
+
+/*  
+   =========
+     MENU  
+   =========
+*/
+header {
+     background-color: var(--red);
+     color: var(--white);
+}
+.title {
+     max-width: var(--max-width);
+     margin: 0 auto;
+     padding: var(--spacing);
+}
+main {
+     max-width: var(--max-width);
+     margin: 0 auto;
+     padding: var(--spacing) 0;
+     display: flex;
+     flex-direction: column;
+     align-items: baseline;
+     justify-content: space-between;
+     overflow: hidden;
+}
+div.category:first-child {
+     margin-top: 12px;
+}
+div.category {
+     max-width: 100%;
+     margin-top: 31px;
+}
+div.items-container {
+     overflow-x: scroll;
+     padding: 0 var(--spacing);
+}
+div.items {
+     display: flex;
+     flex-wrap: nowrap;
+     min-width: fit-content;
+}
+div.item {
+     background-color: var(--white);
+     width: var(--itens-width);
+     height: var(--height);
+}
+div.item:nth-child(2) {
+     margin: 0 var(--spacing);
+}
+div.baseboard {
+     background-color: var(--white);
+}
+
+div.button-container {
+     padding: var(--spacing);
+     max-width: var(--max-width);
+     margin: 0 auto;
+}
+::-webkit-scrollbar {
+     display: none;
+}
