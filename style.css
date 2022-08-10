@@ -15,7 +15,7 @@
      --itens-width: 172px;
      --height: 216px;
      --transition: all 0.3s linear;
-     --border-radius: 5px;
+     --border-radius: 10px;
      --spacing: 19px;
 }
 
@@ -42,7 +42,7 @@ h1 {
 }
 h2 {
      font-size: 26px;
-     line-height: 32px;
+     line-height: 44px;
      letter-spacing: 0.018em;
      color: var(--black);
      padding-left: var(--spacing);
@@ -100,6 +100,8 @@ P.bolder {
 header {
      background-color: var(--red);
      color: var(--white);
+     position: sticky;
+     top: 0;
 }
 .title {
      max-width: var(--max-width);
@@ -117,15 +119,18 @@ main {
      overflow: hidden;
 }
 div.category:first-child {
-     margin-top: 12px;
+     margin-top: 7px;
 }
 div.category {
      max-width: 100%;
-     margin-top: 31px;
+     margin-top: 21px;
 }
 div.items-container {
      overflow-x: scroll;
      padding: 0 var(--spacing);
+}
+::-webkit-scrollbar {
+     display: none;
 }
 div.items {
      display: flex;
@@ -136,19 +141,28 @@ div.item {
      background-color: var(--white);
      width: var(--itens-width);
      height: var(--height);
+     padding: var(--spacing);
+     border-radius: var(--border-radius);
 }
 div.item:nth-child(2) {
      margin: 0 var(--spacing);
 }
 div.baseboard {
      background-color: var(--white);
+     position: sticky;
+     bottom: 0;
 }
-
-div.button-container {
-     padding: var(--spacing);
+div.bottom-container {
      max-width: var(--max-width);
      margin: 0 auto;
+     padding: var(--spacing) 25px;
 }
-::-webkit-scrollbar {
-     display: none;
+button.bottom {
+     background-color: var(--dark-grey);
+     color: var(--white);
+     border-radius: 30.5px;
+     height: 61px;
+     width: 364px;
+     border: none;
+     padding: 0 calc(var(--spacing) * 4);
 }
