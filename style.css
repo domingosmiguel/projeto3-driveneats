@@ -6,14 +6,15 @@
      --title-font: "Righteous", cursive;
      --other-font: "Roboto", sans-serif;
      --green: rgb(50, 183, 47);
+     --ligth-green: rgb(80, 208, 116);
      --red: rgb(207, 43, 43);
      --light-grey: rgb(238, 238, 238);
      --dark-grey: rgb(203, 203, 203);
      --white: rgb(255, 255, 255);
      --black: rgb(51, 51, 51);
      --max-width: 414px;
-     --itens-width: 172px;
-     --height: 216px;
+     --item-width: 172px;
+     --item-height: 216px;
      --transition: all 0.3s linear;
      --border-radius: 10px;
      --spacing: 19px;
@@ -30,6 +31,12 @@
 body {
      font-weight: 400;
      background-color: var(--light-grey);
+     /* display: grid;
+     grid-template:
+          "header"
+          "main"
+          "div.baseboard"
+          "div.closure"; */
 }
 h1,
 h2 {
@@ -70,27 +77,23 @@ h5 {
      font-weight: 300;
      font-size: 15px;
      line-height: 18px;
-     color: var(--light-grey);
+     color: var(--dark-grey);
 }
 h6 {
      font-size: 20px;
      line-height: 23px;
 }
-/* 
-     USAR PARA QUANDO O BOTÃO DO RODAPÉ
-     ESTIVER ATIVADO E PARA "CANCELAR" DA ÚLTIMA PÁGINA
 h6.bolder {
      font-weight: 700;
 }
-  USAR NA ÚLTIMA PÁGINA
-P {
+p {
      font-size: 22px;
      line-height: 26px;
      letter-spacing: 0.018em;
 }
-P.bolder {
+p.bolder {
      font-weight: 700;
-} */
+}
 
 /*  
    =========
@@ -139,18 +142,24 @@ div.items {
 }
 div.item {
      background-color: var(--white);
-     width: var(--itens-width);
-     height: var(--height);
-     padding: var(--spacing);
+     width: var(--item-width);
+     height: var(--item-height);
+     padding: 14px;
+     border: 5px solid var(--white);
      border-radius: var(--border-radius);
 }
 div.item:nth-child(2) {
      margin: 0 var(--spacing);
 }
+div.current {
+     border-color: var(--green);
+     transition: var(--transition);
+}
 div.baseboard {
      background-color: var(--white);
      position: sticky;
      bottom: 0;
+     /* grid-area: 3 / 1 / 4 / 1; */
 }
 div.bottom-container {
      max-width: var(--max-width);
@@ -162,7 +171,64 @@ button.bottom {
      color: var(--white);
      border-radius: 30.5px;
      height: 61px;
-     width: 364px;
+     width: 100%;
      border: none;
-     padding: 0 calc(var(--spacing) * 4);
+     padding: 0 calc(var(--spacing) * 2);
+}
+button.bottom.ready {
+     display: none;
+     background-color: var(--green);
+}
+
+/*  
+   ===========
+     Closure
+   ===========
+*/
+div.closure {
+     display: none;
+     grid-template-rows: 1fr 8fr 1fr;
+     z-index: 1;
+     position: fixed;
+     top: 0;
+     bottom: 0;
+}
+div.closure-background {
+     height: 100%;
+     background-color: var(--white);
+     opacity: 0.9;
+     grid-area: 1 / 1 / 4 / 1;
+}
+div.closure-data {
+     grid-area: 2 / 1 / 3 / 1;
+     z-index: 2;
+     justify-self: center;
+     align-self: center;
+     margin: 0 var(--spacing);
+     padding: var(--spacing) var(--spacing) 0;
+     background-color: var(--ligth-green);
+     color: var(--white);
+     border-radius: var(--border-radius);
+     box-shadow: 0 0 1em var(--black);
+}
+div.closure-txt {
+     margin-bottom: var(--spacing);
+}
+div.closure-txt > div {
+     display: flex;
+     justify-content: space-between;
+}
+button.closure {
+     width: 100%;
+     height: 52px;
+     border: none;
+     border-radius: 26px;
+}
+button.closure.send {
+     background-color: var(--white);
+     color: var(--ligth-green);
+}
+button.closure.cancel {
+     background-color: var(--ligth-green);
+     color: var(--white);
 }

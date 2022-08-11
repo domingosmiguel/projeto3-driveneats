@@ -18,7 +18,7 @@
                <div class="category">
                     <h2>Primeiro, seu prato</h2>
                     <div class="items-container">
-                         <div class="items">
+                         <div class="items" id="mainCourse">
                               <div class="item">
                                    <img src="" alt="" />
                                    <h4 class="bolder">nome do prato</h4>
@@ -43,7 +43,7 @@
                <div class="category">
                     <h2>Agora, sua bebida</h2>
                     <div class="items-container">
-                         <div class="items">
+                         <div class="items" id="beverage">
                               <div class="item">
                                    <img src="" alt="" />
                                    <h4 class="bolder">nome do prato</h4>
@@ -68,7 +68,7 @@
                <div class="category">
                     <h2>Por fim, sua sobremesa</h2>
                     <div class="items-container">
-                         <div class="items">
+                         <div class="items" id="dessert">
                               <div class="item">
                                    <img src="" alt="" />
                                    <h4 class="bolder">nome do prato</h4>
@@ -93,8 +93,51 @@
           </main>
           <div class="baseboard">
                <div class="bottom-container">
-                    <button class="bottom">
+                    <button class="bottom notReady">
                          <h6>Selecione os 3 itens para fechar o pedido</h6>
+                    </button>
+                    <button class="bottom ready" onclick="closure()">
+                         <h6 class="bolder">Fechar pedido</h6>
+                    </button>
+               </div>
+          </div>
+          <div class="closure">
+               <div class="closure-background"></div>
+               <div class="closure-data">
+                    <div class="closure-txt">
+                         <p class="bolder" style="text-align: center">Confirme seu pedido</p>
+                         <br />
+                         <br />
+                         <div>
+                              <p>Frango Yin Yang</p>
+                              <p>27.70</p>
+                         </div>
+                         <br />
+                         <div>
+                              <p>Coquinha Gelada</p>
+                              <p>27.70</p>
+                         </div>
+                         <br />
+                         <div>
+                              <p>Pudim</p>
+                              <p>27.70</p>
+                         </div>
+                         <br />
+                         <div>
+                              <p class="bolder">Total</p>
+                              <p class="border">R$ 27.70</p>
+                         </div>
+                         <br />
+                         <br />
+                         <p>Nome: Fulano</p>
+                         <br />
+                         <p>Endereço: Rua...</p>
+                    </div>
+                    <button class="closure send" onclick="send()">
+                         <p class="bolder">Tudo certo, pode pedir!</p>
+                    </button>
+                    <button class="closure cancel" onclick="cancel()">
+                         <h6 class="bolder">Cancelar</h6>
                     </button>
                </div>
           </div>
@@ -106,6 +149,6 @@
                nomodule
                src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
           ></script>
-          <script src="./script.js"></script>
+          <script src="./script.js" defer></script>
      </body>
 </html>
