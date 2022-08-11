@@ -53,6 +53,7 @@ h2 {
      letter-spacing: 0.018em;
      color: var(--black);
      padding-left: var(--spacing);
+     margin-bottom: calc(var(--spacing) * (-1));
 }
 h3,
 h4,
@@ -105,6 +106,7 @@ header {
      color: var(--white);
      position: sticky;
      top: 0;
+     box-shadow: 0px 5px 10px -3px rgba(0, 0, 0, 0.59);
 }
 .title {
      max-width: var(--max-width);
@@ -127,10 +129,12 @@ div.category:first-child {
 div.category {
      max-width: 100%;
      margin-top: 21px;
+     margin-bottom: calc(var(--spacing) * (-1));
 }
 div.items-container {
      overflow-x: scroll;
-     padding: 0 var(--spacing);
+     overflow-y: visible;
+     padding: var(--spacing);
 }
 ::-webkit-scrollbar {
      display: none;
@@ -139,21 +143,32 @@ div.items {
      display: flex;
      flex-wrap: nowrap;
      min-width: fit-content;
+     overflow-y: visible;
 }
 div.item {
      background-color: var(--white);
      width: var(--item-width);
      height: var(--item-height);
-     padding: 14px;
+     padding: 12px;
      border: 5px solid var(--white);
      border-radius: var(--border-radius);
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
 }
 div.item:nth-child(2) {
      margin: 0 var(--spacing);
 }
+img {
+     width: 100%;
+     max-height: 82px;
+     border-radius: 5px;
+     object-fit: cover;
+}
 div.current {
      border-color: var(--green);
      transition: var(--transition);
+     box-shadow: 0px 5px 12px -3px rgba(0, 0, 0, 0.59);
 }
 div.baseboard {
      background-color: var(--white);

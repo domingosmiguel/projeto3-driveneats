@@ -26,7 +26,7 @@ trackMainCourses.addEventListener("click", (e) => {
      }
      order.mainCourse = mainCourses[targetIndex].children[1].innerText;
      order.mainCoursePrice = Number(
-          mainCourses[targetIndex].children[3].innerText.replace(",", ".")
+          mainCourses[targetIndex].children[3].innerText.replace(",", ".").replace("R$ ", "")
      );
      buttonChange();
 });
@@ -43,7 +43,9 @@ trackBeverages.addEventListener("click", (e) => {
           beverages[targetIndex].classList.add("current");
      }
      order.beverage = beverages[targetIndex].children[1].innerText;
-     order.beveragePrice = Number(beverages[targetIndex].children[3].innerText.replace(",", "."));
+     order.beveragePrice = Number(
+          beverages[targetIndex].children[3].innerText.replace(",", ".").replace("R$ ", "")
+     );
      buttonChange();
 });
 trackDesserts.addEventListener("click", (e) => {
@@ -59,7 +61,9 @@ trackDesserts.addEventListener("click", (e) => {
           desserts[targetIndex].classList.add("current");
      }
      order.dessert = desserts[targetIndex].children[1].innerText;
-     order.dessertPrice = Number(desserts[targetIndex].children[3].innerText.replace(",", "."));
+     order.dessertPrice = Number(
+          desserts[targetIndex].children[3].innerText.replace(",", ".").replace("R$ ", "")
+     );
      buttonChange();
 });
 const buttonChange = () => {
@@ -80,8 +84,8 @@ const closure = () => {
      closureTxt[7].children[0].innerText = order.dessert;
      closureTxt[7].children[1].innerText = String(order.dessertPrice).replace(".", ",") + "0";
      closureTxt[9].children[1].innerText = "R$ " + String(order.total).replace(".", ",") + "0";
-     closureTxt[12].innerText += " " + name;
-     closureTxt[14].innerText += " " + adress;
+     closureTxt[12].innerText = "Nome: " + name;
+     closureTxt[14].innerText = "Endereço: " + adress;
 
      document.querySelector(".closure").style.display = "grid";
 
