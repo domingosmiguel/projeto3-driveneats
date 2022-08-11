@@ -5,6 +5,9 @@ const beverages = Array.from(trackBeverages.children);
 const trackDesserts = document.getElementById("dessert");
 const desserts = Array.from(trackDesserts.children);
 
+const order = [];
+order.cellPhone = "+5522992175627";
+
 const borderColorChanger = (current, target) => {
      current.classList.remove("current");
      target.classList.add("current");
@@ -21,6 +24,10 @@ trackMainCourses.addEventListener("click", (e) => {
           targetIndex = mainCourses.indexOf(e.target.parentElement);
           mainCourses[targetIndex].classList.add("current");
      }
+     order.mainCourse = mainCourses[targetIndex].children[1].innerText;
+     order.mainCoursePrice = Number(
+          mainCourses[targetIndex].children[3].innerText.replace(",", ".")
+     );
      buttonChange();
 });
 trackBeverages.addEventListener("click", (e) => {
@@ -35,6 +42,8 @@ trackBeverages.addEventListener("click", (e) => {
           targetIndex = beverages.indexOf(e.target.parentElement);
           beverages[targetIndex].classList.add("current");
      }
+     order.beverage = beverages[targetIndex].children[1].innerText;
+     order.beveragePrice = Number(beverages[targetIndex].children[3].innerText.replace(",", "."));
      buttonChange();
 });
 trackDesserts.addEventListener("click", (e) => {
@@ -49,6 +58,8 @@ trackDesserts.addEventListener("click", (e) => {
           targetIndex = desserts.indexOf(e.target.parentElement);
           desserts[targetIndex].classList.add("current");
      }
+     order.dessert = desserts[targetIndex].children[1].innerText;
+     order.dessertPrice = Number(desserts[targetIndex].children[3].innerText.replace(",", "."));
      buttonChange();
 });
 const buttonChange = () => {
@@ -58,23 +69,45 @@ const buttonChange = () => {
      }
 };
 const closure = () => {
-     // const name = prompt("Insira seu nome:");
-     // const adress = prompt("Agora, seu endereço:");
+     const name = prompt("Insira seu nome");
+     const adress = prompt("Agora, seu endereço");
+     order.total = order.dessertPrice + order.beveragePrice + order.mainCoursePrice;
+     const closureTxt = document.querySelector(".closure-txt").children;
+     closureTxt[3].children[0].innerText = order.mainCourse;
+     closureTxt[3].children[1].innerText = String(order.mainCoursePrice).replace(".", ",") + "0";
+     closureTxt[5].children[0].innerText = order.beverage;
+     closureTxt[5].children[1].innerText = String(order.beveragePrice).replace(".", ",") + "0";
+     closureTxt[7].children[0].innerText = order.dessert;
+     closureTxt[7].children[1].innerText = String(order.dessertPrice).replace(".", ",") + "0";
+     closureTxt[9].children[1].innerText = "R$ " + String(order.total).replace(".", ",") + "0";
+     closureTxt[12].innerText += " " + name;
+     closureTxt[14].innerText += " " + adress;
+
      document.querySelector(".closure").style.display = "grid";
+
+     order.whatsappMessage = encodeURIComponent(
+          "Olá, gostaria de fazer o pedido:\n-  Prato:  " +
+               order.mainCourse +
+               "\n-  Bebida:  " +
+               order.beverage +
+               "\n-  Sobremesa:  " +
+               order.dessert +
+               "\nTotal:  R$  " +
+               order.total +
+               "0\n\nNome:  " +
+               name +
+               "\nEndereço:  " +
+               adress
+     );
 };
 const send = () => {
-     alert("BOAAAAAAAAAAAA!");
-     cancel();
+     window.open(
+          "https://api.whatsapp.com/send?phone=" +
+               order.cellPhone +
+               "&text=" +
+               order.whatsappMessage
+     );
 };
 const cancel = () => {
      document.querySelector(".closure").style.display = "none";
 };
-
-// Olá, gostaria de fazer o pedido:
-// - Prato: Frango Yin Yang
-// - Bebida: Coquinha Gelada
-// - Sobremesa: Pudim
-// Total: R$ 27.70
-
-// Nome: Fulano
-// Endereço: Rua...
