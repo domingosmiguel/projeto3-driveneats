@@ -1,131 +1,76 @@
-const trackMainCourses = document.getElementById("mainCourses");
+const menuItems = {
+     mainCourses: [
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="1">\n<img src="https://www.aarquiteta.com.br/blog/wp-content/uploads/2022/03/Strogonoff-Vegetariano-de-Palmito-1200x800.png" />\n<h4 class="bolder">Strogonoff Vegetariano</h4>\n<h5>Acompanha arroz e batata palha.</h5>\n<h4>R$ 24,90</h4>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="2">\n<img src="https://espetinhodesucesso.com.br/wp-content/uploads/2022/06/o-que-acompanha-omelete-simples.jpg" />\n<h4 class="bolder">Omelete 4 Queijos</h4>\n<h5>Acompanha salada de alface e tomate.</h5>\n<h4>R$ 22,90</h4>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="3">\n<img src="https://saudefortaleza.com.br/wp-content/uploads/2017/08/shutterstock_509083930.jpg" />\n<h4 class="bolder">Pizza Marguerita</h4>\n<h5>Nossa deliciosa pizza brotinho</h5>\n<h4>R$ 23,90</h4>\n</div>',
+     ],
+     beverages: [
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="1">\n<img src="https://img.elo7.com.br/product/zoom/262F374/adesivo-parede-decoracao-suco-de-laranja-fruta-lanchonete-adesivo-decorativo.jpg" />\n<h4 class="bolder">Suco de Laranja</h4>\n<h5>Da fruta, docinha. Copo de 300ml.</h5>\n<h4>R$ 8,90</h4>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="2">\n<img src="https://www.villapiva.com.br/image/cache/catalog/produtos/fotos-ambientadas/cha-preto-com-limao-300-ml-1000x1000.jpeg" />\n<h4 class="bolder">Suco de Uva</h4>\n<h5>300ml de um delicioso suco integral</h5>\n<h4>R$ 9,90</h4>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="3">\n<img src="https://shoppingjardinsonline.com.br/shoppingjardinsonline/2020/06/coca-cola.jpeg" />\n<h4 class="bolder">Coca-Cola</h4>\n<h5>Lata 350ml</h5>\n<h4>R$ 5,90</h4>\n</div>',
+     ],
+     desserts: [
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="1">\n<img src="https://www.receiteria.com.br/wp-content/uploads/receitas-de-sorvete-de-flocos.jpg" />\n<h4 class="bolder">Sorvete de Flocos</h4>\n<h5>3 bolas do melhor sabor já inventado.</h5>\n<h4>R$ 9,90</h4>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="2">\n<img src="https://img.itdg.com.br/tdg/images/recipes/000/001/599/361922/361922_original.jpg?mode=crop&width=710&height=400" />\n<h4 class="bolder">Mousse de Maracujá</h4>\n<h5>Amor em forma de pote?</h5>\n<h4>R$ 8,90</h4>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="3">\n<img src="https://img.itdg.com.br/tdg/images/recipes/000/031/593/318825/318825_original.jpg?mode=crop&width=710&height=400" />\n<h4 class="bolder">Pudim</h4>\n<h5>Apenas um belo e lustroso pudim.</h5>\n<h4>R$ 7,90</h4>\n</div>',
+     ],
+};
+
+menuItems.mainCourses.forEach((item) => {
+     document.getElementById("mainCourses").innerHTML += item;
+});
+menuItems.beverages.forEach((item) => {
+     document.getElementById("beverages").innerHTML += item;
+});
+menuItems.desserts.forEach((item) => {
+     document.getElementById("desserts").innerHTML += item;
+});
+
+trackMainCourses = document.getElementById("mainCourses");
 const mainCoursesArray = Array.from(trackMainCourses.children);
 const trackBeverages = document.getElementById("beverages");
 const beveragesArray = Array.from(trackBeverages.children);
 const trackDesserts = document.getElementById("desserts");
 const dessertsArray = Array.from(trackDesserts.children);
-
-const order = [];
+const order = []; // OBJETO QUE GUARDARÁ TODAS AS INFOS DE PEDIDOS
 order.cellPhone = "+5522992175627";
 
-const borderColorChanger = (current, target) => {
-     current.classList.remove("current");
-     target.classList.add("current");
+const menuArrays = {
+     // COLOCA OS ARRAYS DE TODAS AS CATEGORIAS EM UM OBJETO
+     mainCourses: mainCoursesArray,
+     beverages: beveragesArray,
+     desserts: dessertsArray,
 };
-
-const menu = {
-     mainCourses(targetId) {
-          const currentSelection = trackMainCourses.querySelector(".current");
-          if (currentSelection) {
-               const currentId = mainCoursesArray.indexOf(currentSelection);
-               if (currentId == targetId - 1) {
-                    mainCoursesArray[targetId - 1].classList.remove("current");
-                    buttonChange();
-               } else {
-                    mainCoursesArray[currentId].classList.remove("current");
-                    mainCoursesArray[targetId - 1].classList.add("current");
-                    buttonChange();
-               }
-          } else {
-               mainCoursesArray[targetId - 1].classList.add("current");
-               buttonChange();
-          }
-     },
-     beverages(targetId) {
-          const currentSelection = trackBeverages.querySelector(".current");
-          if (currentSelection) {
-               const currentId = beveragesArray.indexOf(currentSelection);
-               if (currentId == targetId - 1) {
-                    beveragesArray[targetId - 1].classList.remove("current");
-                    buttonChange();
-               } else {
-                    beveragesArray[currentId].classList.remove("current");
-                    beveragesArray[targetId - 1].classList.add("current");
-                    buttonChange();
-               }
-          } else {
-               beveragesArray[targetId - 1].classList.add("current");
-               buttonChange();
-          }
-     },
-     desserts(targetId) {
-          const currentSelection = trackDesserts.querySelector(".current");
-          if (currentSelection) {
-               const currentId = dessertsArray.indexOf(currentSelection);
-               if (currentId == targetId - 1) {
-                    dessertsArray[targetId - 1].classList.remove("current");
-                    buttonChange();
-               } else {
-                    dessertsArray[currentId].classList.remove("current");
-                    dessertsArray[targetId - 1].classList.add("current");
-                    buttonChange();
-               }
-          } else {
-               dessertsArray[targetId - 1].classList.add("current");
-               buttonChange();
-          }
-     },
+const trackMenu = {
+     // COLOCA TODOS OS ELEMENTOS NO MESMO OBJETO
+     mainCourses: trackMainCourses,
+     beverages: trackBeverages,
+     desserts: trackDesserts,
 };
-
-const itemSelector = (itemParentId, itemId) => {
-     const menuEditing = menu[itemParentId];
-     menuEditing(itemId);
+// COM INFOS DO CLICK FAZ A MOVIMENTAÇÃO DA CLASSE "current" QUE É RESPONSÁVEL
+// PELA BORDA VERDE NOS ITENS SELECIONADOS
+const orderEditing = (targetParentId, targetId) => {
+     const targetArray = Array.from(menuArrays[targetParentId]);
+     const currentSelection = trackMenu[targetParentId].querySelector(".current");
+     if (currentSelection) {
+          const currentId = targetArray.indexOf(currentSelection);
+          if (currentId == targetId - 1) {
+               targetArray[targetId - 1].classList.remove("current");
+          } else {
+               targetArray[currentId].classList.remove("current");
+               targetArray[targetId - 1].classList.add("current");
+          }
+     } else {
+          targetArray[targetId - 1].classList.add("current");
+     }
+     buttonChange();
+     // ATRIBUIÇÃO DAS CARACTERÍSTICAS DO ITEM CLICADO AO OBJETO "order"
+     order[targetParentId] = targetArray[targetId - 1].children[1].innerText;
+     order[targetParentId + "Price"] = Number(
+          targetArray[targetId - 1].children[3].innerText.replace(",", ".").replace("R$ ", "")
+     );
 };
-
-// trackMainCourses.addEventListener("click", (e) => {
-//      const currentMainCourse = trackMainCourses.querySelector(".current");
-//      if (currentMainCourse) {
-//           currentMainCourse.classList.remove("current");
-//      }
-//      let targetIndex = mainCoursesArray.indexOf(e.target);
-//      if (targetIndex != -1) {
-//           mainCoursesArray[targetIndex].classList.add("current");
-//      } else if (mainCourses.indexOf(e.target.parentElement) != -1) {
-//           targetIndex = mainCoursesArray.indexOf(e.target.parentElement);
-//           mainCoursesArray[targetIndex].classList.add("current");
-//      }
-//      order.mainCourse = mainCoursesArray[targetIndex].children[1].innerText;
-//      order.mainCoursePrice = Number(
-//           mainCoursesArray[targetIndex].children[3].innerText.replace(",", ".").replace("R$ ", "")
-//      );
-//      buttonChange();
-// });
-// trackBeverages.addEventListener("click", (e) => {
-//      const targetBeverages = trackBeverages.querySelector(".current");
-//      if (targetBeverages) {
-//           targetBeverages.classList.remove("current");
-//      }
-//      let targetIndex = beveragesArray.indexOf(e.target);
-//      if (targetIndex != -1) {
-//           beveragesArray[targetIndex].classList.add("current");
-//      } else if (beverages.indexOf(e.target.parentElement) != -1) {
-//           targetIndex = beveragesArray.indexOf(e.target.parentElement);
-//           beveragesArray[targetIndex].classList.add("current");
-//      }
-//      order.beverage = beveragesArray[targetIndex].children[1].innerText;
-//      order.beveragePrice = Number(
-//           beveragesArray[targetIndex].children[3].innerText.replace(",", ".").replace("R$ ", "")
-//      );
-//      buttonChange();
-// });
-// trackDesserts.addEventListener("click", (e) => {
-//      const currentDesserts = trackDesserts.querySelector(".current");
-//      if (currentDesserts) {
-//           currentDesserts.classList.remove("current");
-//      }
-//      let targetIndex = dessertsArray.indexOf(e.target);
-//      if (targetIndex != -1) {
-//           dessertsArray[targetIndex].classList.add("current");
-//      } else if (desserts.indexOf(e.target.parentElement) != -1) {
-//           targetIndex = dessertsArray.indexOf(e.target.parentElement);
-//           dessertsArray[targetIndex].classList.add("current");
-//      }
-//      order.dessert = dessertsArray[targetIndex].children[1].innerText;
-//      order.dessertPrice = Number(
-//           dessertsArray[targetIndex].children[3].innerText.replace(",", ".").replace("R$ ", "")
-//      );
-//      buttonChange();
-// });
+// RESPONSÁVEL POR LIGAR E DESLIGAR O BOTÃO PARA FINALIZAR PEDIDO
 const buttonChange = () => {
      if (document.getElementsByClassName("current").length == 3) {
           document.querySelector(".notReady").style.display = "none";
@@ -135,17 +80,19 @@ const buttonChange = () => {
           document.querySelector(".ready").style.display = "none";
      }
 };
+// FINALIZA O PEDINDO LIGANDO A TELA FINAL COM TODAS AS INFOS PARA CONFIRMAÇÃO DO USUÁRIO
+// ALÉM DE MONTAR O TEXTO QUE SERÁ ENVIADO POR WHATSAPP
 const closure = () => {
      const name = prompt("Insira seu nome");
      const adress = prompt("Agora, seu endereço");
-     order.total = order.dessertPrice + order.beveragePrice + order.mainCoursePrice;
+     order.total = order.dessertsPrice + order.beveragesPrice + order.mainCoursesPrice;
      const closureTxt = document.querySelector(".closure-txt").children;
-     closureTxt[3].children[0].innerText = order.mainCourse;
-     closureTxt[3].children[1].innerText = String(order.mainCoursePrice).replace(".", ",") + "0";
-     closureTxt[5].children[0].innerText = order.beverage;
-     closureTxt[5].children[1].innerText = String(order.beveragePrice).replace(".", ",") + "0";
-     closureTxt[7].children[0].innerText = order.dessert;
-     closureTxt[7].children[1].innerText = String(order.dessertPrice).replace(".", ",") + "0";
+     closureTxt[3].children[0].innerText = order.mainCourses;
+     closureTxt[3].children[1].innerText = String(order.mainCoursesPrice).replace(".", ",") + "0";
+     closureTxt[5].children[0].innerText = order.beverages;
+     closureTxt[5].children[1].innerText = String(order.beveragesPrice).replace(".", ",") + "0";
+     closureTxt[7].children[0].innerText = order.desserts;
+     closureTxt[7].children[1].innerText = String(order.dessertsPrice).replace(".", ",") + "0";
      closureTxt[9].children[1].innerText = "R$ " + String(order.total).replace(".", ",") + "0";
      closureTxt[12].innerText = "Nome: " + name;
      closureTxt[14].innerText = "Endereço: " + adress;
@@ -154,11 +101,11 @@ const closure = () => {
 
      order.whatsappMessage = encodeURIComponent(
           "Olá, gostaria de fazer o pedido:\n-  Prato:  " +
-               order.mainCourse +
+               order.mainCourses +
                "\n-  Bebida:  " +
-               order.beverage +
+               order.beverages +
                "\n-  Sobremesa:  " +
-               order.dessert +
+               order.desserts +
                "\nTotal:  R$  " +
                order.total +
                "0\n\nNome:  " +

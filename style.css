@@ -156,8 +156,8 @@ div.item {
      flex-direction: column;
      justify-content: space-between;
 }
-div.item:nth-child(2) {
-     margin: 0 var(--spacing);
+div.item:nth-child(n + 2) {
+     margin-left: var(--spacing);
 }
 img {
      width: 100%;
