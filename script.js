@@ -33,7 +33,7 @@ const beveragesArray = Array.from(trackBeverages.children);
 const trackDesserts = document.getElementById("desserts");
 const dessertsArray = Array.from(trackDesserts.children);
 const order = []; // OBJETO QUE GUARDARÁ TODAS AS INFOS DE PEDIDOS
-order.cellPhone = "+5522992175627";
+order.cellPhone = "+5555555555555";
 
 const menuArrays = {
      // COLOCA OS ARRAYS DE TODAS AS CATEGORIAS EM UM OBJETO

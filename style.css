@@ -224,6 +224,7 @@ div.closure {
 }
 div.closure-background {
      height: 100%;
+     width: 100vw;
      background-color: var(--white);
      opacity: 0.9;
      grid-area: 1 / 1 / 4 / 1;
