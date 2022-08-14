@@ -26,7 +26,7 @@ menuItems.desserts.forEach((item) => {
      document.getElementById("desserts").innerHTML += item;
 });
 
-trackMainCourses = document.getElementById("mainCourses");
+const trackMainCourses = document.getElementById("mainCourses");
 const mainCoursesArray = Array.from(trackMainCourses.children);
 const trackBeverages = document.getElementById("beverages");
 const beveragesArray = Array.from(trackBeverages.children);
@@ -54,7 +54,7 @@ const orderEditing = (targetParentId, targetId) => {
      const currentSelection = trackMenu[targetParentId].querySelector(".current");
      if (currentSelection) {
           const currentId = targetArray.indexOf(currentSelection);
-          if (currentId == targetId - 1) {
+          if (currentId === targetId - 1) {
                targetArray[targetId - 1].classList.remove("current");
           } else {
                targetArray[currentId].classList.remove("current");
@@ -72,7 +72,7 @@ const orderEditing = (targetParentId, targetId) => {
 };
 // RESPONSÁVEL POR LIGAR E DESLIGAR O BOTÃO PARA FINALIZAR PEDIDO
 const buttonChange = () => {
-     if (document.getElementsByClassName("current").length == 3) {
+     if (document.getElementsByClassName("current").length === 3) {
           document.querySelector(".notReady").style.display = "none";
           document.querySelector(".ready").style.display = "block";
      } else {
