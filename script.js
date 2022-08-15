@@ -1,54 +1,46 @@
+// New item template  (new categories can also be created)
+// '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="---ID---">\n<img src="---IMAGE-SOURCE---" />\n<h4 class="bolder">---NAME---</h4>\n<h5>---DESCRIPTION---</h5>\n<div><h4>---PRICE---</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
 const menuItems = {
      mainCourses: [
-          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="1">\n<img src="https://www.aarquiteta.com.br/blog/wp-content/uploads/2022/03/Strogonoff-Vegetariano-de-Palmito-1200x800.png" />\n<h4 class="bolder">Strogonoff Vegetariano</h4>\n<h5>Acompanha arroz e batata palha.</h5>\n<div><h4>R$ 24,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
-          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="2">\n<img src="https://espetinhodesucesso.com.br/wp-content/uploads/2022/06/o-que-acompanha-omelete-simples.jpg" />\n<h4 class="bolder">Omelete 4 Queijos</h4>\n<h5>Acompanha salada de alface e tomate.</h5>\n<div><h4>R$ 22,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
-          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="3">\n<img src="https://saudefortaleza.com.br/wp-content/uploads/2017/08/shutterstock_509083930.jpg" />\n<h4 class="bolder">Pizza Marguerita</h4>\n<h5>Nossa deliciosa pizza brotinho</h5>\n<div><h4>R$ 23,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="1">\n<img src="./images/Strogonoff-Vegetariano-de-Palmito-1200x800.png" />\n<h4 class="bolder">Strogonoff Vegetariano</h4>\n<h5>Acompanha arroz e batata palha.</h5>\n<div><h4>R$ 24,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="2">\n<img src="./images/omelete-4-queijos.jpg" />\n<h4 class="bolder">Omelete 4 Queijos</h4>\n<h5>Acompanha salada de alface e tomate.</h5>\n<div><h4>R$ 22,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="3">\n<img src="./images/pizza-marguerita.jpg" />\n<h4 class="bolder">Pizza Marguerita</h4>\n<h5>Nossa deliciosa pizza brotinho</h5>\n<div><h4>R$ 23,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
      ],
      beverages: [
-          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="1">\n<img src="https://img.elo7.com.br/product/zoom/262F374/adesivo-parede-decoracao-suco-de-laranja-fruta-lanchonete-adesivo-decorativo.jpg" />\n<h4 class="bolder">Suco de Laranja</h4>\n<h5>Da fruta, docinha. Copo de 300ml.</h5>\n<div><h4>R$ 8,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
-          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="2">\n<img src="https://www.villapiva.com.br/image/cache/catalog/produtos/fotos-ambientadas/cha-preto-com-limao-300-ml-1000x1000.jpeg" />\n<h4 class="bolder">Suco de Uva</h4>\n<h5>300ml de um delicioso suco integral</h5>\n<div><h4>R$ 9,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
-          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="3">\n<img src="https://shoppingjardinsonline.com.br/shoppingjardinsonline/2020/06/coca-cola.jpeg" />\n<h4 class="bolder">Coca-Cola</h4>\n<h5>Lata 350ml</h5>\n<div><h4>R$ 5,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="1">\n<img src="./images/adesivo-parede-decoracao-suco-de-laranja-fruta-lanchonete-adesivo-decorativo.jpg" />\n<h4 class="bolder">Suco de Laranja</h4>\n<h5>Da fruta, docinha. Copo de 300ml.</h5>\n<div><h4>R$ 8,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="2">\n<img src="./images/suco-uva-integral.jpeg" />\n<h4 class="bolder">Suco de Uva</h4>\n<h5>300ml de um delicioso suco integral</h5>\n<div><h4>R$ 9,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="3">\n<img src="./images/coca-cola.jpeg" />\n<h4 class="bolder">Coca-Cola</h4>\n<h5>Lata 350ml</h5>\n<div><h4>R$ 5,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
      ],
      desserts: [
-          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="1">\n<img src="https://www.receiteria.com.br/wp-content/uploads/receitas-de-sorvete-de-flocos.jpg" />\n<h4 class="bolder">Sorvete de Flocos</h4>\n<h5>3 bolas do melhor sabor já inventado.</h5>\n<div><h4>R$ 9,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
-          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="2">\n<img src="https://img.itdg.com.br/tdg/images/recipes/000/001/599/361922/361922_original.jpg?mode=crop&width=710&height=400" />\n<h4 class="bolder">Mousse de Maracujá</h4>\n<h5>Amor em forma de pote?</h5>\n<div><h4>R$ 8,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
-          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="3">\n<img src="https://img.itdg.com.br/tdg/images/recipes/000/031/593/318825/318825_original.jpg?mode=crop&width=710&height=400" />\n<h4 class="bolder">Pudim</h4>\n<h5>Apenas um belo e lustroso pudim.</h5>\n<div><h4>R$ 7,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="1">\n<img src="./images/sorvete-de-flocos.png" />\n<h4 class="bolder">Sorvete de Flocos</h4>\n<h5>3 bolas do melhor sabor já inventado.</h5>\n<div><h4>R$ 9,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="2">\n<img src="./images/mousse-maracuja.png" />\n<h4 class="bolder">Mousse de Maracujá</h4>\n<h5>Amor em forma de pote?</h5>\n<div><h4>R$ 8,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
+          '<div class="item" onclick="orderEditing(this.parentNode.id , this.id)" id="3">\n<img src="./images/pudim.jpg" />\n<h4 class="bolder">Pudim</h4>\n<h5>Apenas um belo e lustroso pudim.</h5>\n<div><h4>R$ 7,90</h4><ion-icon name="checkmark-circle"></ion-icon></div>\n</div>',
      ],
 };
-
-menuItems.mainCourses.forEach((item) => {
-     document.getElementById("mainCourses").innerHTML += item;
-});
-menuItems.beverages.forEach((item) => {
-     document.getElementById("beverages").innerHTML += item;
-});
-menuItems.desserts.forEach((item) => {
-     document.getElementById("desserts").innerHTML += item;
-});
-
-const trackMainCourses = document.getElementById("mainCourses");
-const mainCoursesArray = Array.from(trackMainCourses.children);
-const trackBeverages = document.getElementById("beverages");
-const beveragesArray = Array.from(trackBeverages.children);
-const trackDesserts = document.getElementById("desserts");
-const dessertsArray = Array.from(trackDesserts.children);
-const order = []; // OBJETO QUE GUARDARÁ TODAS AS INFOS DE PEDIDOS
-order.cellPhone = "+5555555555555";
-
-const menuArrays = {
-     // COLOCA OS ARRAYS DE TODAS AS CATEGORIAS EM UM OBJETO
-     mainCourses: mainCoursesArray,
-     beverages: beveragesArray,
-     desserts: dessertsArray,
-};
+// COLOCA OS ELEMENTOS DE TODAS AS CATEGORIAS NO MESMO OBJETO
 const trackMenu = {
-     // COLOCA TODOS OS ELEMENTOS NO MESMO OBJETO
-     mainCourses: trackMainCourses,
-     beverages: trackBeverages,
-     desserts: trackDesserts,
+     mainCourses: document.getElementById("mainCourses"),
+     beverages: document.getElementById("beverages"),
+     desserts: document.getElementById("desserts"),
 };
-// COM INFOS DO CLICK FAZ A MOVIMENTAÇÃO DA CLASSE "current" QUE É RESPONSÁVEL
-// PELA BORDA VERDE NOS ITENS SELECIONADOS
+const categoryCounter = Object.keys(trackMenu).length;
+//  INSERE OS ITENS DO CARDÁPIO EM SUAS RESPECTIVAS CATEGORIAS
+Object.values(menuItems).map((category, i) => {
+     category.forEach((item) => {
+          Object.values(trackMenu)[i].innerHTML += item;
+     });
+});
+// OBJETO QUE GUARDARÁ TODAS AS INFOS DE PEDIDOS
+const order = [];
+order.cellPhone = "+5555555555555";
+// COLOCA OS ARRAYS DE TODAS AS CATEGORIAS EM UM OBJETO
+const menuArrays = {
+     mainCourses: Array.from(trackMenu.mainCourses.children),
+     beverages: Array.from(trackMenu.beverages.children),
+     desserts: Array.from(trackMenu.desserts.children),
+};
+// COM INFOS DO CLICK FAZ A MOVIMENTAÇÃO DA CLASSE "current",
+// QUE É RESPONSÁVEL PELA BORDA VERDE NOS ITENS SELECIONADOS
 const orderEditing = (targetParentId, targetId) => {
      const targetArray = Array.from(menuArrays[targetParentId]);
      const currentSelection = trackMenu[targetParentId].querySelector(".current");
@@ -72,7 +64,7 @@ const orderEditing = (targetParentId, targetId) => {
 };
 // RESPONSÁVEL POR LIGAR E DESLIGAR O BOTÃO PARA FINALIZAR PEDIDO
 const buttonChange = () => {
-     if (document.getElementsByClassName("current").length === 3) {
+     if (document.getElementsByClassName("current").length === categoryCounter) {
           document.querySelector(".notReady").style.display = "none";
           document.querySelector(".ready").style.display = "block";
      } else {
