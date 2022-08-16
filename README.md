@@ -1,6 +1,6 @@
 # **Projeto 3: DrivenEats**
 
-Esse projeto foi feito como parte da minha formação como Desenvolvedor Web Full stack na Driven. O objetivo foi implementar uma ferramente que facilitaria o recebimento de pedidos para um restaurante, utilizando um website que, atravez de uma API, encaminharia todos os dados necessários do cliente e o respectivo pedido para o WhatsApp do estabelecimento.
+Esse projeto foi feito como parte da minha formação como Desenvolvedor Web Full stack na Driven. O objetivo foi implementar uma ferramente que facilitaria o recebimento de pedidos para um restaurante, utilizando um website que, por meio de uma API, encaminharia todos os dados necessários do cliente e o respectivo pedido para o WhatsApp do estabelecimento.
 
 ## **Conteúdos exercitados**:
 
