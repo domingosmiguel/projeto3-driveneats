@@ -31,7 +31,7 @@ Object.values(menuItems).map((category, i) => {
      });
 });
 // OBJETO QUE GUARDARÁ TODAS AS INFOS DE PEDIDOS
-const order = [];
+const order = new Object();
 order.cellPhone = "+5555555555555";
 // COM INFOS DO CLICK FAZ A MOVIMENTAÇÃO DA CLASSE "current",
 // QUE É RESPONSÁVEL PELA BORDA VERDE NOS ITENS SELECIONADOS
